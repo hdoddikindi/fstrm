@@ -50,6 +50,7 @@ nobase_include_HEADERS = \
 	fstrm/rdwr.h		\
 	fstrm/reader.h		\
 	fstrm/unix_writer.h	\
+	fstrm/tcp_writer.h	\
 	fstrm/writer.h
 
 fstrm_libfstrm_la_SOURCES = \
@@ -61,6 +62,7 @@ fstrm_libfstrm_la_SOURCES = \
 	fstrm/reader.c fstrm/reader.h		\
 	fstrm/time.c				\
 	fstrm/unix_writer.c fstrm/unix_writer.h	\
+	fstrm/tcp_writer.c fstrm/tcp_writer.h	\
 	fstrm/writer.c fstrm/writer.h		\
 	libmy/my_alloc.h			\
 	libmy/my_memory_barrier.h		\
@@ -147,6 +149,20 @@ t_test_fstrm_io_unix_LDADD = \
 t/run_test_fstrm_io_unix.sh: t/test_fstrm_io_unix
 TESTS += t/run_test_fstrm_io_unix.sh
 EXTRA_DIST += t/run_test_fstrm_io_unix.sh
+
+check_PROGRAMS += t/test_fstrm_io_tcp
+t_test_fstrm_io_tcp_SOURCES = \
+	t/test_fstrm_io_tcp.c \
+	libmy/my_alloc.h \
+	libmy/my_time.h \
+	libmy/print_string.h \
+	libmy/ubuf.h \
+	libmy/vector.h
+t_test_fstrm_io_tcp_LDADD = \
+	fstrm/libfstrm.la
+t/run_test_fstrm_io_tcp.sh: t/test_fstrm_io_tcp
+TESTS += t/run_test_fstrm_io_tcp.sh
+EXTRA_DIST += t/run_test_fstrm_io_tcp.sh
 
 check_PROGRAMS += t/test_writer_hello
 t_test_writer_hello_SOURCES = \

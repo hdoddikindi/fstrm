@@ -277,6 +277,7 @@ struct fstrm_iothr_queue;
 struct fstrm_rdwr;
 struct fstrm_reader_options;
 struct fstrm_unix_writer_options;
+struct fstrm_tcp_writer_options;
 struct fstrm_writer;
 struct fstrm_writer_options;
 
@@ -286,6 +287,7 @@ struct fstrm_writer_options;
 #include <fstrm/rdwr.h>
 #include <fstrm/reader.h>
 #include <fstrm/unix_writer.h>
+#include <fstrm/tcp_writer.h>
 #include <fstrm/writer.h>
 
 #ifdef __cplusplus
